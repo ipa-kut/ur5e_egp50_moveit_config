@@ -10,5 +10,6 @@
   <include file="$(find ur5e_egp50_moveit_config)/launch/move_group.launch">
     <arg name="limited" default="$(arg limited)"/>
     <arg name="debug" default="$(arg debug)" />
+    <arg name="sim" default="$(arg sim)" />
   </include>
 </launch>

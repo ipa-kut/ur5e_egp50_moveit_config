@@ -1,5 +1,6 @@
 <launch>
   <arg name="limited" default="false"/>
+  <arg name="sim" default="false" />
 
   <include file="$(find ur5e_egp50_moveit_config)/launch/planning_context.launch">
     <arg name="limited" value="$(arg limited)" />
@@ -32,6 +33,7 @@
     <arg name="moveit_manage_controllers" value="true" />
     <arg name="moveit_controller_manager" value="ur5e_egp50" unless="$(arg fake_execution)"/>
     <arg name="moveit_controller_manager" value="fake" if="$(arg fake_execution)"/>
+    <arg name="sim" default="$(arg sim)" />
   </include>
 
   <!-- Sensors Functionality -->
