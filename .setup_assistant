@@ -7,5 +7,5 @@ moveit_setup_assistant_config:
     relative_path: config/ur5e_egp50.srdf
   CONFIG:
     author_name: ipa-kut
-    author_email: kut@ipa.fraunhofer.de
-    generated_timestamp: 1567686883
+    author_email: tejas.kumar.shastha@ipa.fraunhofer.de
+    generated_timestamp: 1645800625
