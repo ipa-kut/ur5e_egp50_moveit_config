@@ -1,15 +1,19 @@
 <launch>
   <arg name="sim" default="false" />
-  <arg name="limited" default="false"/>
   <arg name="debug" default="false" />
+  <arg name="rviz_config" default="$(find ur5e_egp50_moveit_config)/launch/moveit.rviz" />
 
   <!-- Remap follow_joint_trajectory -->
-  <remap if="$(arg sim)" from="/follow_joint_trajectory" to="/arm_controller/follow_joint_trajectory"/>
+  <remap if="$(arg sim)" from="/scaled_pos_joint_traj_controller/follow_joint_trajectory" to="/pos_joint_traj_controller/follow_joint_trajectory"/>
 
   <!-- Launch moveit -->
   <include file="$(find ur5e_egp50_moveit_config)/launch/move_group.launch">
-    <arg name="limited" default="$(arg limited)"/>
     <arg name="debug" default="$(arg debug)" />
-    <arg name="sim" default="$(arg sim)" />
+  </include>
+
+  <!-- Launch RVIZ -->
+  <include file="$(find ur5e_egp50_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" default="$(arg rviz_config)" />
+    <arg name="debug" default="$(arg debug)" />
   </include>
 </launch>
